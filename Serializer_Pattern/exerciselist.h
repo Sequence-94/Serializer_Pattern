@@ -1,22 +1,17 @@
 #ifndef EXERCISELIST_H
 #define EXERCISELIST_H
 #include"exercise.h"
-#include<QMap>
 #include<QString>
 
 class ExerciseList
 {
 public:
     ExerciseList();
-    ExerciseList(Exercise& exe);
-    void insert(Exercise exe);
-
-
-
-    QMap<QString, int> getEList() const;
+    void add(Exercise e);
+    QList<Exercise> getList() const;
 
 private:
-    QMap<QString,int> eList;
+    QList<Exercise> list;
 };
 
 #endif // EXERCISELIST_H

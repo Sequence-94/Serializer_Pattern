@@ -3,22 +3,16 @@
 
 ExerciseList::ExerciseList()
 {
-
 }
 
-ExerciseList::ExerciseList(Exercise &exe)
+void ExerciseList::add(Exercise e)
 {
-    eList[exe.getData()]=exe.getNumber();
+    list.append(e);
 }
 
-void ExerciseList::insert(Exercise exe)
+QList<Exercise> ExerciseList::getList() const
 {
-    eList[exe.getData()]=exe.getNumber();
-}
-
-QMap<QString, int> ExerciseList::getEList() const
-{
-    return eList;
+    return list;
 }
 
 
