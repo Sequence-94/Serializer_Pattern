@@ -1,0 +1,19 @@
+[1mdiff --git a/Serializer_Pattern/exercise.h b/Serializer_Pattern/exercise.h[m
+[1mindex c201245..4ee11dc 100644[m
+[1m--- a/Serializer_Pattern/exercise.h[m
+[1m+++ b/Serializer_Pattern/exercise.h[m
+[36m@@ -11,11 +11,10 @@[m [mprivate:[m
+     int number;[m
+ [m
+ public:[m
+[31m-    Exercise();[m
+[31m-    Exercise(QString data,int number);[m
+[31m-    QString toString();[m
+[32m+[m[32m    void setData(QString d);[m
+[32m+[m[32m    void setNum(int n);[m
+     QString getData() const;[m
+[31m-    int getNumber() const;[m
+[32m+[m[32m    int getNum() const;[m
+ };[m
+ [m
+ #endif // EXERCISE_H[m

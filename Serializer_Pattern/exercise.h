@@ -11,11 +11,11 @@ private:
     int number;
 
 public:
-    Exercise();
-    Exercise(QString data,int number);
-    QString toString();
+    Exercise(QString d, int n);
+    void setData(QString d);
+    void setNum(int n);
     QString getData() const;
-    int getNumber() const;
+    int getNum() const;
 };
 
 #endif // EXERCISE_H

@@ -1,30 +1,25 @@
 #include "exercise.h"
 
+Exercise::Exercise(QString d, int n): data{d}, num{n}
+{
+}
+
+void Exercise::setData(QString d)
+{
+    data = d;
+}
+
+void Exercise::setNum(int n)
+{
+    num = n;
+}
 
 QString Exercise::getData() const
 {
     return data;
 }
 
-int Exercise::getNumber() const
+int Exercise::getNum() const
 {
-    return number;
-}
-
-Exercise::Exercise()
-{
-
-}
-
-Exercise::Exercise(QString data, int number)
-{
-    this->data = data;
-    this->number = number;
-}
-
-QString Exercise::toString()
-{
-    return QString("Data: %1,Number: %2")
-        .arg(data)
-        .arg(number);
+    return num;
 }
