@@ -9,18 +9,14 @@
 #include<iostream>
 using namespace std;
 
-class ListWriter
-{
-private:
-    QString filePath = "simpleTextFile.txt";
+#include <QString>
 
+class FileWriter{
 public:
-    //writer takes where it will write ->path
-    //and
-    //what it will write -> instance
-    ListWriter();
-    //ListWriter(QString path);
-    void write(ExerciseList& eList);
+    FileWriter(QString fn);
+    void write(QString s) const;
+private:
+    QString fileName;
 };
 
 #endif // LISTWRITER_H

@@ -1,33 +1,19 @@
-#include "listwriter.h"
+#include <QFile>
+#include <QTextStream>
+#include "filewriter.h"
 
-ListWriter::ListWriter()
+FileWriter::FileWriter(QString fn): fileName{fn}
 {
-
 }
 
-// ListWriter::ListWriter(QString path)
-// {
-//     filePath = path;
-// }
-
-void ListWriter::write(ExerciseList &eList)
+void FileWriter::write(QString s) const
 {
-     QFile file(filePath);
-    if(!file.open(QIODevice::WriteOnly | QIODevice::Text)){
-        qCritical()<<"Could not open file!";
-        qCritical()<<file.errorString();
-        return;
+    QFile file(fileName);
+    if (file.open(QIODevice::WriteOnly))
+    {
+        QTextStream toFile(&file);
+        toFile << s;
+        file.close();
     }
-    else{
-        qInfo()<<"Writing list to file...";
-        //opens a "stream" inorder to write to the file
-        QTextStream cout(&file);
-        QMap theList = eList.getEList();
-        for(auto i=theList.cbegin(), end = theList.cend();i!=end;i++){
-            cout<<i.key()<<":"<<i.value()<<"\n";
-        }
-    }
-
 }
-
 
