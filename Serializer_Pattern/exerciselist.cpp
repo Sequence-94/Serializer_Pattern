@@ -1,6 +1,5 @@
 #include "exerciselist.h"
 
-
 ExerciseList::ExerciseList()
 {
 }
@@ -14,8 +13,4 @@ QList<Exercise> ExerciseList::getList() const
 {
     return list;
 }
-
-
-
-
 

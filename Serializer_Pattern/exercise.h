@@ -1,21 +1,19 @@
 #ifndef EXERCISE_H
 #define EXERCISE_H
-#include<QString>
-#include<QList>
 
+#include <QString>
 
 class Exercise
 {
-private:
-    QString data;
-    int number;
-
 public:
     Exercise(QString d, int n);
     void setData(QString d);
     void setNum(int n);
     QString getData() const;
     int getNum() const;
+private:
+    QString data;
+    int num;
 };
 
 #endif // EXERCISE_H

@@ -1,19 +1,18 @@
-#include <QFile>
-#include <QTextStream>
+#include "listwriter.h"
 #include "filewriter.h"
 
-FileWriter::FileWriter(QString fn): fileName{fn}
+ListWriter::ListWriter()
 {
 }
 
-void FileWriter::write(QString s) const
+void ListWriter::write(ExerciseList el)
 {
-    QFile file(fileName);
-    if (file.open(QIODevice::WriteOnly))
+    QList<Exercise> list = el.getList();
+    QString alldata;
+    foreach (Exercise e, list)
     {
-        QTextStream toFile(&file);
-        toFile << s;
-        file.close();
+        alldata.append(QString(e.getData() + "#" + QString::number(e.getNum()) + "\n"));
     }
+    FileWriter f("myfile.txt");
+    f.write(alldata);
 }
-

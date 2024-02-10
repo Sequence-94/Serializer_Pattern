@@ -1,37 +1,31 @@
 #include <QCoreApplication>
-#include "exercise.h"
-#include "exerciselist.h"
-#include "listreader.h"
-#include "listwriter.h"
 
-#include<iostream>
-#include<QDebug>
-using namespace std;
+#include <QTextStream>
+#include "exerciselist.h"
+#include "listwriter.h"
+#include "listreader.h"
 
 int main(int argc, char *argv[])
 {
-    QCoreApplication a(argc, argv);
+    QTextStream out(stdout);
 
-    Exercise e1("one",1);
-    Exercise e2("two",2);
+    Exercise e1("one", 1);
+    Exercise e2("two", 2);
 
-    ExerciseList eList;
-    eList.insert(e1);
-    eList.insert(e2);
+    ExerciseList list1;
+    list1.add(e1);
+    list1.add(e2);
 
     ListWriter lw;
-    lw.write(eList);
+    lw.write(list1);
 
-
-    ExerciseList sList;
+    ExerciseList list2;
     ListReader lr;
-    sList = lr.read();
+    list2 = lr.read();
 
+    QList<Exercise> inlist2 = list2.getList();
+    foreach (Exercise e, inlist2)
+        out << e.getData() << ": " << e.getNum() << "\n";
 
-    //testing if indeed i am able to read from file
-    for(auto i=sList.getEList().cbegin(),end=sList.getEList().cend();i!=end;i++){
-        qInfo()<<"["<<i.key()<<":"<<i.value()<<"]";
-    }
-
-    return a.exec();
+    return 0;
 }

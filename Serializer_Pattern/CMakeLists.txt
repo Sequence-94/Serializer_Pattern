@@ -19,6 +19,8 @@ add_executable(Serializer_Pattern
   listreader.h listreader.cpp
   listwriter.h listwriter.cpp
   exercise.h exercise.cpp
+  filewriter.h filewriter.cpp
+  filereader.h filereader.cpp
 
 )
 target_link_libraries(Serializer_Pattern Qt${QT_VERSION_MAJOR}::Core)

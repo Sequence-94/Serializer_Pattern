@@ -1,19 +1,23 @@
+#include "listreader.h"
+
+#include <QStringList>
 #include "filereader.h"
-#include <QFile>
-#include <QTextStream>
-FileReader::FileReader(QString f): filename{f}
+
+ListReader::ListReader()
 {
 }
 
-QString FileReader::read() const
+ExerciseList ListReader::read() const
 {
-    QFile file(filename);
-    if (file.open(QIODevice::ReadOnly))
+    FileReader fr("myfile.txt");
+    QString str = fr.read();
+    ExerciseList list;
+    QStringList data = str.split("\n");
+    for (int loop=0; loop<data.size()-1; loop++)
     {
-        QTextStream fromFile(&file);
-        QString s = fromFile.readAll();
-        file.close();
-        return s;
+        QStringList line = data.at(loop).split("#");
+        Exercise e(line.at(0), line.at(1).toInt());
+        list.add(e);
     }
-    return QString();
+    return list;
 }
