@@ -3,16 +3,16 @@
 #include "exercise.h"
 #include "exerciselist.h"
 #include<QMap>
-#include<QFile>
+#include<QString>
 #include<QDebug>
 
 class ListReader
 {
 private:
-    QString filePath = "simpleTextFile.txt";
+    QString filename;
 public:
-    ListReader();
-    ExerciseList read();
+    FileReader(QString f);
+    QString read() const;
 };
 
 #endif // LISTREADER_H
