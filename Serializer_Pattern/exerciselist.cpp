@@ -1,15 +1,22 @@
 #include "exerciselist.h"
 
-ExerciseList::ExerciseList()
+ExerciseList::ExerciseList():list{new QList<Exercise*>}
 {
 }
 
-void ExerciseList::add(Exercise e)
+ExerciseList::~ExerciseList()
 {
-    list.append(e);
+    qDeleteAll(*list);
+    list->clear();
+    delete list;
 }
 
-QList<Exercise> ExerciseList::getList() const
+void ExerciseList::add(Exercise *e)
+{
+    list->append(e);
+}
+
+QList<Exercise*>* ExerciseList::getList() const
 {
     return list;
 }

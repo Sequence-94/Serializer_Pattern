@@ -1,5 +1,10 @@
 #include "exercise.h"
 
+Exercise::Exercise():data{"UNKNOWN"},num{0}
+{
+
+}
+
 Exercise::Exercise(QString d, int n): data{d}, num{n}
 {
 }

@@ -7,7 +7,7 @@ class ListReader
 {
 public:
     ListReader();
-    ExerciseList read() const;
+    ExerciseList* read() const;
 };
 
 #endif // LISTREADER_H

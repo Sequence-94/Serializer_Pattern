@@ -2,13 +2,19 @@
 #define EXERCISE_H
 
 #include <QString>
+#include <QObject>
 
-class Exercise
+class Exercise : public QObject
 {
+    Q_OBJECT
+    Q_PROPERTY(QString data READ getData WRITE setData)
+    Q_PROPERTY(int num READ getNum WRITE setNum)
 public:
+    Exercise();
     Exercise(QString d, int n);
     void setData(QString d);
     void setNum(int n);
+    //const since it does no modification
     QString getData() const;
     int getNum() const;
 private:

@@ -8,10 +8,11 @@ class ExerciseList
 {
 public:
     ExerciseList();
-    void add(Exercise e);
-    QList<Exercise> getList() const;
+    ~ExerciseList();
+    void add(Exercise *e);
+    QList<Exercise*>* getList() const;
 private:
-    QList<Exercise> list;
+    QList<Exercise*> *list;
 };
 
 #endif // EXERCISELIST_H
